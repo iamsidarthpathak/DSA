@@ -5,7 +5,8 @@ int Lsearch(vector<int>&arr,int n,int a){
         if (arr[i]==a){
             return i;
         }
-    }return -1;
+    }return -1;//t(c)=O(n)
+    //s(c)O(1)
 }
 int main(){
     int n;cin>>n;
