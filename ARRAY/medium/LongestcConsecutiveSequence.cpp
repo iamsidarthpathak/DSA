@@ -57,7 +57,7 @@ int long_cons_seq(vector<int>&arr){
                    while(st.find(x+1)!=st.end()){
                     x=x+1;
                     cnt++;
-                   }longestcons=max(cnt,longestcons);
+                   }longestcons=max(longestcons,cnt);
                 }
             }
 
