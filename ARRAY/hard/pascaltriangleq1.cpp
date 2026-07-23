@@ -5,7 +5,7 @@
 //     1       3       3       1
 // 1       4       6       4       1
 // there are three tupes of question in pascal triangle
-// here we will solve type 1 in which we will find element at specific row and column for ex 4th row 2 column and ans should be 4
+// here we will solve type 1 in which we will find element at specific row and column for ex 5th row 2 column and ans should be 4
 //     which will be calculated as R-1
 //                                     C
 //                                       C-1
@@ -16,7 +16,7 @@ int genrateElement(int r,int c){
     int k=c-1;
     int ans=1;
     for(int i =0 ;i<k;i++){
-        ans = ans*(n-i);
+        ans = ans*(n-i);//t(c)=O(k);
         ans= ans/(i+1);
     }
 
