@@ -23,24 +23,55 @@ vector<vector<int>>findQuad(vector<int>&nums,int target){
     // }
 
         //better approach
-        set<vector<int>>result;
-        for(int i=0;i<n;i++){
+        // set<vector<int>>result;
+        // for(int i=0;i<n;i++){
            
-        for(int j=i+1;j<n;j++){
-             unordered_set<int>st;
-             for(int k =j+1;k<n;k++){
-                 long long sum = (long long)nums[i] + nums[j] + nums[k] ;
-                long long fourth = (long long )target-sum;
-                if(st.find(fourth)!=st.end()){
-                    vector<int>temp={nums[i],nums[j],nums[k],(int)fourth};
-                    sort(temp.begin(),temp.end());
-                    result.insert(temp);
+        // for(int j=i+1;j<n;j++){
+        //      unordered_set<int>st;
+        //      for(int k =j+1;k<n;k++){
+        //          long long sum = (long long)nums[i] + nums[j] + nums[k] ;
+        //         long long fourth = (long long )target-sum;
+        //         if(st.find(fourth)!=st.end()){
+        //             vector<int>temp={nums[i],nums[j],nums[k],(int)fourth};
+        //             sort(temp.begin(),temp.end());
+        //             result.insert(temp);
+        //         }
+        //         st.insert(nums[k]);
+        //      }
+        //     }
+        // }
+
+
+            //optimal soln
+            vector<vector<int>>ans;
+            sort(nums.begin(),nums.end());
+
+        for(int i=0;i<n;i++){
+            if(i>0&&nums[i-1]==nums[i])continue;
+            for(int j =i+1;j<n;j++){
+                if(j>i+1&&nums[j]==nums[j-1])continue;
+                int k = j+1;
+                int l =n-1;
+                
+                
+                while(k<l){
+                    long long sum = (long long)nums[i] + nums[j] + nums[k]+nums[l] ;
+                    if(sum==target){
+                        ans.push_back({nums[i],nums[j],nums[k],nums[l]});
+                       
+                        k++;
+                        l--;
+                        while(k<l&&nums[k-1]==nums[k])k++;
+                        while(k<l&&nums[l+1]==nums[l])l--;
+
+                    }
+                    else if(sum<target)k++;
+                    else l--;
+
                 }
-                st.insert(nums[k]);
-             }
             }
         }
-   vector<vector<int>>ans(result.begin(),result.end());
+
    return ans;
 }
 int main(){
