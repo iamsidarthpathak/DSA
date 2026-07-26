@@ -46,7 +46,8 @@ vector<vector<int>>findlist(vector<int>&nums,int target){
     for(int i=0;i<n;i++){
         if(i>0&&nums[i-1]==nums[i])continue;
         int j =i+1;
-        int k=n-1;
+        int k=n-1;//t(c)=O(nlogn+n2)
+        //sc=O(m)to return the answer not to solve the prblem
         while (j<k){
             if((nums[i]+nums[j]+nums[k])<target){
                 j++;
