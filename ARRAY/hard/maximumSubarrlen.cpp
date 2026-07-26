@@ -29,12 +29,13 @@ int lensubarraySum(vector<int>&nums,int k ){
             int remaining=presum-k;
             if(mpp.find(remaining)!=mpp.end()){
                 currentsize=i-mpp[remaining];
+                 maxi = max(maxi , currentsize);
             }
-            if(mpp.find(presum)==mpp.end()) mpp[presum]=i;
+            if(mpp.find(presum)==mpp.end()){ mpp[presum]=i;
            
             
-            maxi = max(maxi , currentsize);
-            
+           
+            }
         }
     return maxi;
 }
