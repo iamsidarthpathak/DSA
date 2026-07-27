@@ -18,7 +18,8 @@ int findsubarrayxr(vector<int>&nums,int k ){
     mpp[0]=1;
     for(int i =0;i<n;i++){
         prexr^=nums[i];//
-        int target = prexr^k;//x^prexr^prexr=k^prexr
+        int target = prexr^k;//x^k=prexr
+                            //(x^k)^k=prexr^k
                             //x=k^prexr
         if(mpp.find(target)!=mpp.end()){
             cnt+=mpp[target];
