@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>//lower bound means the  smalleat index whose val  is greater or equal to target
+#include<bits/stdc++.h>//lower bound means the  smalleat index whose val  is greater  to target
 using namespace std;
 int lowerbound(vector<int>&nums,int target){
     int low=0;
@@ -6,7 +6,7 @@ int lowerbound(vector<int>&nums,int target){
     int ans = nums.size();
     while(low<=high){
         int mid = low+(high-low)/2;
-        if(nums[mid]>=target){
+        if(nums[mid]>target){
             ans = mid;
             high = mid -1;
 
