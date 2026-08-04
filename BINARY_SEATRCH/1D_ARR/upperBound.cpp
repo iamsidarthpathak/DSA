@@ -1,6 +1,6 @@
-#include<bits/stdc++.h>//lower bound means the  smalleat index whose val  is greater  to target
+#include<bits/stdc++.h>//upperg bound means the  smalleat index whose val  is greater  to target
 using namespace std;
-int lowerbound(vector<int>&nums,int target){
+int upperbound(vector<int>&nums,int target){
     int low=0;
     int high=nums.size()-1;
     int ans = nums.size();
@@ -28,7 +28,7 @@ int main(){
     int target;
     cin>>target;
 
-    int res=lowerbound(nums,target);
+    int res=upperbound(nums,target);
     cout<<res;
 
 }
