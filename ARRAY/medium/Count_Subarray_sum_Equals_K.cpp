@@ -36,6 +36,8 @@ int subarraySum(vector<int>&nums,int k){
                presum+=nums[i];
                int remaining = presum-k;
                cnt+=mpp[remaining];
+
+               
                mpp[presum]+=1;
             }
 
